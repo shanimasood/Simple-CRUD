@@ -2,7 +2,6 @@
     <div class="nav">
         <a @click="home">Home</a>
         <a @click="add">Add Cars</a>
-        <a @click="this.$router.push('/update')">Update Cars</a>
         <a @click="logout" style="float:right">Logout</a>
     </div>
 </template>

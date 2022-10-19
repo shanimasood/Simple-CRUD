@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { reactive } from 'vue'
 import router from '../../router/index'
+import { ElNotification } from 'element-plus'
 const state ={
     register:{
         name:'',
@@ -48,7 +49,11 @@ const actions ={
                 router.push({ name: 'MainMenu' })
             }
             else{
-                alert("invalid login")
+                ElNotification({
+                    title: 'Error',
+                    message: 'Invalid Login Credentials',
+                    type: 'error',
+                  })
             }
     },
     async AddCar({commit},val){
@@ -66,6 +71,21 @@ const actions ={
         let response = await axios.get('http://localhost:3000/carList');
         console.log("data table",response.data)
         commit('setTableData',response.data)
+    },
+    async deleteTableRow({dispatch},val){
+        await axios.delete(`http://localhost:3000/carList/${val}`);
+        await dispatch('getTableData')
+    },
+    async UpdateRow({dispatch},val){
+        console.log("put request",val);
+        await axios.put(`http://localhost:3000/carList/${val.id}`,{
+            category: val.category,
+            color: val.color,
+            model: val.model,
+            make:val.make,
+            reg_no:val.reg_no,
+        });
+        await dispatch('getTableData')
     },
     logout({commit},val){
         commit('userLogin_info', val)
@@ -102,6 +122,7 @@ const mutations ={
                 model: val.model,
                 make: val.make,
                 reg_no: val.reg_no,
+                id:val.id
             }
         })
         state.tableDataList=data

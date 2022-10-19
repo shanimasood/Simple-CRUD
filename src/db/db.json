@@ -1,0 +1,42 @@
+{
+  "users": [
+    {
+      "email": "test@gmail.com",
+      "name": "Ali",
+      "password": "12345",
+      "id": 1
+    },
+    {
+      "email": "mus",
+      "name": "ali",
+      "password": "123",
+      "id": 2
+    }
+  ],
+  "carList": [
+    {
+      "category": "sedan",
+      "color": "black",
+      "model": "2014",
+      "make": "Toyota Corolla vti 1.6",
+      "reg_no": "MXP-224",
+      "id": 1
+    },
+    {
+      "category": "sedan",
+      "color": "sdsd",
+      "model": "sdsds",
+      "make": "sdds",
+      "reg_no": "sds",
+      "id": 3
+    },
+    {
+      "category": "hatchback",
+      "color": "black",
+      "model": "2013",
+      "make": "toyota veizal",
+      "reg_no": "MPP-78251",
+      "id": 4
+    }
+  ]
+}

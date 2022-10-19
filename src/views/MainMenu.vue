@@ -3,18 +3,23 @@
     <h1>Hello {{name}}, Welcome to the Dashboard</h1>
     <br>
     <h2>Total Registered Car:{{count}}</h2>
-    <el-table highlight-current-row @current-change="handleCurrentChange" border :data="tableData" style="width: 100%" max-height="300">
+    <el-table  border :data="tableData" style="width: 100%"
+        max-height="300">
         <el-table-column sortable prop="category" label="Car Category" min-width="230" />
         <el-table-column prop="color" label="Color" min-width="180" />
         <el-table-column sortable prop="model" label="Model" min-width="120" />
         <el-table-column prop="make" label="Make" min-width="300" />
-        <el-table-column prop="reg_no" label="Registration No" min-width="450" />
+        <el-table-column prop="reg_no" label="Registration No" min-width="200" />
+        <el-table-column label="Actions" align="center" min-width="300">
+            <template #default="scope">
+                <el-button size="small" @click="handleEdit(scope.$index, scope.row)">Edit</el-button>
+                <el-button size="small" type="danger" @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
+            </template>
+        </el-table-column>
     </el-table>
-    <br>
-    <el-button style="float:left;margin-left:1%" @click="deleteRow" type="danger">Remove</el-button>
 </template>
 <script>
-import {  ref } from '@vue/reactivity'
+import { ref } from '@vue/reactivity'
 import Header from '../components/Header.vue'
 import router from '../router/index'
 import store from '../store/index'
@@ -22,28 +27,27 @@ export default {
     components: {
         Header
     },
-    methods:{
-        handleCurrentChange(val){
-            this.currentRow=val
-            console.log(this.currentRow);
+    methods: {
+        handleDelete(index, row) {
+            console.log(index, row)
         },
-        deleteRow(){
-            console.log(this.currentRow);
+        handleEdit(index, row) {
+            console.log(index, row)
         }
     },
-    computed:{
-        count(){
+    computed: {
+        count() {
             let uniqueNames = [...new Set(store.getters.gettersTableData)];
-        let count = uniqueNames.length;
-        return count
+            let count = uniqueNames.length;
+            return count
         },
-        tableData(){
+        tableData() {
             return store.getters.gettersTableData
         }
     },
     setup() {
         return {
-            currentRow:null,
+            currentRow: null,
             name: ref('')
         }
     },

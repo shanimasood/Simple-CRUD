@@ -26,8 +26,9 @@ export default {
        Header
    },
    setup(){
-    function add(){
-        store.dispatch('AddCar',this.car)
+    async function add(){
+       await store.dispatch('AddCar',this.car)
+       router.push('/')
     }
     return{
         add,

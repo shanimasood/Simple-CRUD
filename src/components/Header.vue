@@ -37,7 +37,7 @@ export default {
 </script>
 <style>
 .nav {
-    background-color: #333;
+    background:url(../assets/header.jpg);
     overflow: hidden;
 }
 

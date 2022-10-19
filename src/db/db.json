@@ -37,6 +37,30 @@
       "make": "toyota veizal",
       "reg_no": "MPP-78251",
       "id": 4
+    },
+    {
+      "category": "hatchback",
+      "color": "yellow",
+      "model": "2022",
+      "make": "Toyota Camary 2.0",
+      "reg_no": "POS-855",
+      "id": 5
+    },
+    {
+      "category": "bus",
+      "color": "yellow",
+      "model": "2012",
+      "make": "Hino Pak",
+      "reg_no": "LIS-852",
+      "id": 6
+    },
+    {
+      "category": "sedan",
+      "color": "red",
+      "model": "2022",
+      "make": "alsvin",
+      "reg_no": "lox-85",
+      "id": 7
     }
   ]
 }
